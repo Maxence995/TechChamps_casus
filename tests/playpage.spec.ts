@@ -52,10 +52,10 @@ devices.forEach(device => {
             await playPage.expectElementDisabled(playPage.loremIpsumInput);
         });
 
-        test('Moving slider to max levels up character', async ({ page }) => {
+        test('Moving slider to max levels up character', async () => {
             await playPage.setCharacterName('TestCharacter');
             await playPage.clickStartButton();
-            await playPage.moveSliderToMax();
+            await playPage.moveSliderToMax(playPage.slider);
             await playPage.expectElementDisabledTrue(playPage.slider);
         });
     })

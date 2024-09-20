@@ -2,6 +2,18 @@
 
 This project contains automated tests for the RPG game at https://test-rpg.vercel.app/play using Playwright with TypeScript.
 
+## Table of Contents
+
+1. [Prerequisites](#prerequisites)
+2. [Setup](#setup)
+3. [Project Structure](#project-structure)
+4. [Running Tests](#running-tests)
+5. [Test Structure](#test-structure)
+6. [Acceptance Criteria Covered](#acceptance-criteria-covered)
+7. [Viewing Test Results](#viewing-test-results)
+8. [Contributing](#contributing)
+9. [Troubleshooting](#troubleshooting)
+
 ## Prerequisites
 
 - Node.js (v14 or later)
@@ -25,12 +37,43 @@ This project contains automated tests for the RPG game at https://test-rpg.verce
    npx playwright install
    ```
 
+4. Copy the `.env.example` file to `.env` and update any necessary variables:
+   ```
+   cp .env.example .env
+   ```
+
+## Project Structure
+
+```
+.
+├── api/
+│   └── handleApi.ts
+├── fixtures/
+│   └── testData.ts
+├── page-object/
+│   ├── components/
+│   │   └── Header.ts
+│   ├── BasePage.ts
+│   └── PlayPage.ts
+├── tests/
+│   ├── login.spec.ts
+│   └── playpage.spec.ts
+├── utils/
+│   ├── formControls.ts
+│   ├── navigation.ts
+│   └── filepath.ts
+├── playwright.config.ts
+├── package.json
+├── README.md
+└── CONTRIBUTING.md
+```
+
 ## Running Tests
 
 To run all tests:
 
 ```
-npx playwright test
+npm test
 ```
 
 To run tests in a specific file:
@@ -48,6 +91,7 @@ npx playwright test --headed
 ## Test Structure
 
 - `tests/playpage.spec.ts`: Contains all test cases for the RPG game page.
+- `tests/login.spec.ts`: Contains login-related test cases.
 - `page-object/PlayPage.ts`: Page Object Model for the RPG game page, containing methods to interact with page elements.
 
 ## Acceptance Criteria Covered
@@ -70,6 +114,15 @@ npx playwright show-report
 
 This will open the HTML report in your default browser, showing detailed test results and any failures.
 
+## Contributing
+
+Please read [CONTRIBUTING.md](CONTRIBUTING.md) for details on our code of conduct and the process for submitting pull requests.
+
 ## Troubleshooting
 
-If you encounter any issues, ensure that all dependencies are correctly installed and that you're using a compatible version of Node.js. If problems persist, please check the Playwright documentation or open an issue in this repository.
+If you encounter any issues:
+
+1. Ensure that all dependencies are correctly installed and that you're using a compatible version of Node.js.
+2. Check that your `.env` file is properly configured.
+3. Verify that you have the latest version of Playwright browsers installed.
+4. If problems persist, please check the [Playwright documentation](https://playwright.dev/docs/intro) or open an issue in this repository.
